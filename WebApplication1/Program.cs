@@ -35,9 +35,6 @@ class Program
                 string[] input = Console.ReadLine().Split(',', 3);
                 int from1 = int.Parse(input[0]);
                 int to1 = int.Parse(input[1]);
-                // string to = to1.ToString().Substring(2, 1);
-                //string data1 = input[2];
-                //data1 = data1.Substring(1, data1.Length);
                 List<string> data = input[2].Split(",").ToList();
 
                 intervals.Add(new Interval(from1, to1, data));
