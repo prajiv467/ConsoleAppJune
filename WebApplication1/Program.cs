@@ -93,7 +93,7 @@ class Program
 
                 int minFrom = overlappingIntervals.Min(i => i.From);
                 int maxTo = overlappingIntervals.Max(i => i.To);
-                MergedIntervals.Clear();
+               // MergedIntervals.Clear();
                 if (FirstData != null) { MergedIntervals.AddRange(FirstData); }
                 MergedIntervals.AddRange(interval.Data);
                 if (interval.From < maxTo && interval.From > minFrom)
@@ -106,7 +106,7 @@ class Program
                 }
                 else if (interval.From < maxTo)
                 {
-                    rearrangedIntervals.Add(new Interval(interval.From, maxTo, MergedIntervals));
+                    rearrangedIntervals.Add(new Interval(interval.From, maxTo, allData));
                 }
                 if (interval.To > maxTo)
                 {
