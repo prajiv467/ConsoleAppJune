@@ -24,13 +24,26 @@ class Program
         try
         {
             Console.Write("Enter the number of intervals: ");
-            int n = int.Parse(Console.ReadLine());
+            string str = Console.ReadLine();
+            int numericValue;
+            bool isNumber = int.TryParse(str, out numericValue);
 
+            if (string.IsNullOrEmpty(str))
+            {
+                Console.WriteLine("number of intervals can not be blank");
+                return;
+            }
+            else if (isNumber ==false)
+            {
+                Console.WriteLine("You must enter integer value in the number of intervals");
+                return;
+            }
+            int n = int.Parse(str);
+          
             List<Interval> intervals = new List<Interval>();
 
             for (int i = 0; i < n; i++)
             {
-                
                 Console.Write($"Enter interval {i + 1} (From, To, Data): ");
                 string[] input = Console.ReadLine().Split(',', 3);
                 int from1 = int.Parse(input[0]);
